@@ -1,10 +1,8 @@
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .models import User
-from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.hashers import check_password
 from .forms import UserLoginForm, UserRegistrationForm, EditProfileForm, PasswordChangingForm
 
@@ -100,3 +98,19 @@ def change_password(request):
     else:
         form = PasswordChangingForm()
     return render(request, 'accounts/change-password.html', {'form': form})
+
+
+@login_required
+def delete_user(request):
+    return render(request, 'accounts/delete-account.html')
+
+
+@login_required
+def delete_user_confirm(request, user_id):
+    if request.user.id == user_id:
+        user = User.objects.get(id=user_id)
+        user.delete()
+        messages.success(request, "Your accounts Deleted successfully ! ", 'success')
+    else:
+        messages.error(request, "User does not exist")
+    return redirect('company:home')

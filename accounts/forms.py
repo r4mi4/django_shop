@@ -1,7 +1,6 @@
 from django import forms
 from .models import User, Profile
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.contrib.auth.views import PasswordChangeForm
 
 
 class UserCreationForm(forms.ModelForm):
@@ -112,4 +111,3 @@ class PasswordChangingForm(forms.ModelForm):
             raise forms.ValidationError(
                 "password and confirm_password does not match"
             )
-
