@@ -1,10 +1,12 @@
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .models import User
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-
-from .forms import UserLoginForm, UserRegistrationForm, EditProfileForm
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.hashers import check_password
+from .forms import UserLoginForm, UserRegistrationForm, EditProfileForm, PasswordChangingForm
 
 
 def user_login(request):
@@ -76,3 +78,25 @@ def profile(request, user_id):
                                         'image': request.user.profile.image,
                                         })
     return render(request, 'accounts/profile.html', {'form': form})
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        current_password = request.user.password  # user's current password
+        form = PasswordChangingForm(request.POST)
+        if form.is_valid():
+            current_password_entered = form.cleaned_data.get("old_password")
+            password1 = form.cleaned_data.get("new_password1")
+            match_check = check_password(current_password_entered, current_password)
+            if match_check:
+                request.user.set_password(password1)
+                request.user.save()
+                messages.success(request, 'password changed successfully!', 'success')
+            else:
+                messages.error(request, 'your current password entered is wrong !', 'danger')
+        else:
+            messages.error(request, 'please fill the form correctly !!', 'danger')
+    else:
+        form = PasswordChangingForm()
+    return render(request, 'accounts/change-password.html', {'form': form})

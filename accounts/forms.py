@@ -1,6 +1,7 @@
 from django import forms
 from .models import User, Profile
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.views import PasswordChangeForm
 
 
 class UserCreationForm(forms.ModelForm):
@@ -86,5 +87,29 @@ class EditProfileForm(forms.ModelForm):
             'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'country'}),
             'state': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'state'}),
             'zip_code': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'zip code'}),
-            'image': forms.FileInput(attrs={'class': 'account-settings-fileinput','form':'profile-form'}),
+            'image': forms.FileInput(attrs={'class': 'account-settings-fileinput', 'form': 'profile-form'}),
         }
+
+
+class PasswordChangingForm(forms.ModelForm):
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'old password', 'type': 'password'}))
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'New password', 'type': 'password'}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'placeholder': 'Confirm New password', 'type': 'password'}))
+
+    class Meta:
+        model = User
+        fields = ('old_password', 'new_password1', 'new_password2')
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("new_password1")
+        confirm_password = cleaned_data.get("new_password2")
+
+        if password != confirm_password:
+            raise forms.ValidationError(
+                "password and confirm_password does not match"
+            )
+

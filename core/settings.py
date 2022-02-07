@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '<django-secret-key>'
+SECRET_KEY = 'django-insecure-f8c#a)-amjfa2nd^&syh5@!jsn8m34e)d(y3)0q)+^s*pl8og('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-USE_S3 = True
+USE_S3 = False
 
 ALLOWED_HOSTS = ['athena-ec.herokuapp.com', '127.0.0.1']
 
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -92,9 +92,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# import dj_database_url
+#
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -151,7 +151,7 @@ else:
     # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
     # STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATIC_URL = '/static/'
 
     MEDIA_URL = '/media/'
@@ -159,11 +159,9 @@ else:
     # Default primary key field type
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
     # MEDIAFILES_DIRS = (MEDIA_ROOT,)
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_PUBLISHABLE_KEY = '<STRIPE_PUBLISHABLE_KEY>'
-STRIPE_SECRET_KEY = '<STRIPE_SECRET_KEY>'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51KO5UvJsODTnE8pPzublS0PEqyOtu4spslJiGJo4fNOV5qRvFordWelVElh6WJHmYxLZrXawIRRjDlYMRa85c136009pvo85rV'
+STRIPE_SECRET_KEY = 'sk_test_51KO5UvJsODTnE8pPxDjkqmFGbXy31cd8f9bibzMH5MWQnvRM6U74RuxfDqaxrckIXJWQ3AGo8dvpPpICqX87S11d00gY2LWdTq'
