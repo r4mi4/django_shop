@@ -1,18 +1,18 @@
 <h1 align="center">
-  <a href="https://github.com/Athenaazar/django-ecommerce">
+  <a href="https://github.com/r4mi4/django_shop">
     Stop & Shop
   </a>
 </h1>
 
 <div align="center">
-  Django Ecommerce Project :<a href="https://athena-ec.herokuapp.com/"> click-here!</a>
+  Django Ecommerce Project :<a href=""> click-here!</a>
   <br />
   <br />
-  <a href="https://github.com/Athenaazar/django-ecommerce/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  <a href="https://github.com/r4mi4/django_shop/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   ·
-  <a href="https://github.com/Athenaazar/django-ecommerce/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/r4mi4/django_shop/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   .
-  <a href="https://github.com/Athenaazar/django-ecommerce/discussions">Ask a Question</a>
+  <a href="https://github.com/r4mi4/django_shop/discussions">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -20,8 +20,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/Athenaazar/Paradise-restaurant-html-css/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-[![made with hearth by Athena](https://img.shields.io/badge/made%20with%20%E2%9D%A4%EF%B8%8F%20by-Athena-red)](https://github.com/Athenaazar)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/r4mi4/django_shop/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 </div>
 
@@ -68,7 +67,7 @@ This is a simple e-commerce website built with Django. It contains the essential
 
 ## Getting Started
 ### Quick demo
-<a href="https://athena-ec.herokuapp.com/"> click-here!</a>
+<a href=""> click-here!</a>
 
 ### Usage
 

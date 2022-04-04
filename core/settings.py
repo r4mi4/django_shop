@@ -21,13 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f8c#a)-amjfa2nd^&syh5@!jsn8m34e)d(y3)0q)+^s*pl8og('
+SECRET_KEY = 'django-insecure-f8c#a)-amdjfa2nd^&syh5s@!jsn8m34e)d(y3)0q)+^s*pl8og(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 USE_S3 = True
 
-ALLOWED_HOSTS = ['athena-ec.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['app.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -131,9 +131,9 @@ STATICFILES_FINDERS = [
 ]
 if USE_S3:
     # S3 BUCKETS CONFIG
-    AWS_ACCESS_KEY_ID = 'AKIARI4EK7A6KAFA5CEP'
-    AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'athena-dec'
+    AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
+    AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
+    AWS_STORAGE_BUCKET_NAME = 'app'
     AWS_S3_FILE_OVERWRITE = True
     AWS_DEFAULT_ACL = None
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
@@ -163,5 +163,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51KO5UvJsODTnE8pPzublS0PEqyOtu4spslJiGJo4fNOV5qRvFordWelVElh6WJHmYxLZrXawIRRjDlYMRa85c136009pvo85rV'
-STRIPE_SECRET_KEY = 'sk_test_51KO5UvJsODTnE8pPxDjkqmFGbXy31cd8f9bibzMH5MWQnvRM6U74RuxfDqaxrckIXJWQ3AGo8dvpPpICqX87S11d00gY2LWdTq'
+STRIPE_PUBLISHABLE_KEY = 'STRIPE_PUBLISHABLE_KEY'
+STRIPE_SECRET_KEY = 'STRIPE_SECRET_KEY'
