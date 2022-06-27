@@ -67,7 +67,7 @@ This is a simple e-commerce website built with Django. It contains the essential
 
 ## Getting Started
 ### Quick demo
-<a href=""> click-here!</a>
+<a href="https://r4m.pythonanywhere.com"> click-here!</a>
 
 ### Usage
 
